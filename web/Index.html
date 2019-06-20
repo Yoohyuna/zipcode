@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>우편번호 검색</title>
+
+    <script>
+        function zipCheck(){
+            window.open("ZipCheck2.jsp","post","left=400,top=220,width=500,height=300,"+
+                "menubar=no,status=yes,toolbar=no,scrollbars=yes")
+        }
+    </script>
+
+</head>
+
+<body>
+<form name="regForm" method="post">
+<tr>
+    <td>우편번호</td>
+    <td> <input type="text" name="mem_zipcode" size="7">
+        <input type="button" value="우편번호찾기" onClick="zipCheck()"></td>
+   </p>
+</tr>
+<tr>
+    <td>주소</td>
+    <td><input type="text" name="mem_address" size="70"></td>
+
+</tr>
+</form>
+</body>
+</html>
