@@ -7,10 +7,25 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"
 import="java.util.*"%>
-<%@ page import="models.ZipcodeDTO" %>
+<%@ page import="dao.ZipcodeDTO" %>
 <%@ page import="dao.ZipcodeDAO" %>
 
 <html>
+
+<%-- <jsp:useBean id="zip" class="dao.ZipcodeDAO" /> --%>
+
+<%
+    request.setCharacterEncoding("utf-8");
+
+    String check=request.getParameter("check");
+    String dong=request.getParameter("dong");
+    System.out.println("check=>"+check+",area3=>"+dong);//y,null
+    //MemberDAO memMgr=new MemberDAO();
+    List<ZipcodeDTO> zipcodeList= zip.getZipcodeList(dong);
+    int totalList=zipcodeList.size();
+    System.out.println("검색된 총레코드수(totalList)=>"+totalList);
+%>
+
 <head>
     <title>Title</title>
 
@@ -31,7 +46,7 @@ import="java.util.*"%>
 <center>
     <b>우편번호 찾기</b>
     <table>
-        <form name="zipForm" method="post" action="/ZipcodeAction">
+        <form name="zipForm" method="post" action="ZipCheck.jsp">
             <tr>
                 <td><br>
                     동이름 입력:<input type="text"  name="dong">
